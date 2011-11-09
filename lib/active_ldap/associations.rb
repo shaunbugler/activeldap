@@ -151,6 +151,7 @@ module ActiveLdap
         define_method("__make_#{name}") do
           make_association.call(self)
         end
+        associations || []
         associations << name
         association_reader(name, &make_association)
         association_writer(name, &make_association)
